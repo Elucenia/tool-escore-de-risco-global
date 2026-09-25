@@ -1,0 +1,280 @@
+{
+  "tool": {
+    "id": "escore-de-risco-global",
+    "title": "Escore de Risco Global",
+    "short": "Risco de eventos cardiovasculares em 10 anos",
+    "spec": [
+      "cardiologia",
+      "medicina-de-familia-e-comunidade",
+      "clinica-medica"
+    ],
+    "tier": 1,
+    "desc": "Calcule o Escore de Risco Global (ERG) da SBC: risco de infarto, AVC, doença arterial periférica ou insuficiência cardíaca em 10 anos, com as metas de LDL-c e não-HDL-c.",
+    "lead": "Estima o risco de infarto do miocárdio, acidente vascular cerebral, insuficiência vascular periférica ou insuficiência cardíaca em 10 anos, em pessoas de 30 a 74 anos sem doença aterosclerótica estabelecida.",
+    "fields": [
+      [
+        "sexo",
+        "Sexo",
+        "radio",
+        {
+          "opts": {
+            "F": "Feminino",
+            "M": "Masculino"
+          }
+        }
+      ],
+      [
+        "idade",
+        "Idade",
+        "num",
+        {
+          "min": 30,
+          "max": 99,
+          "unit": "anos",
+          "ph": "55"
+        }
+      ],
+      [
+        "ct",
+        "Colesterol total",
+        "num",
+        {
+          "min": 70,
+          "max": 500,
+          "unit": "mg/dL",
+          "ph": "200"
+        }
+      ],
+      [
+        "hdl",
+        "HDL-colesterol",
+        "num",
+        {
+          "min": 10,
+          "max": 150,
+          "unit": "mg/dL",
+          "ph": "45"
+        }
+      ],
+      [
+        "pas",
+        "Pressão sistólica",
+        "num",
+        {
+          "min": 70,
+          "max": 260,
+          "unit": "mmHg",
+          "ph": "130"
+        }
+      ],
+      [
+        "tratada",
+        "Usa remédio para pressão?",
+        "radio",
+        {
+          "opts": {
+            "0": "Não",
+            "1": "Sim"
+          }
+        }
+      ],
+      [
+        "fumante",
+        "Fumante?",
+        "radio",
+        {
+          "opts": {
+            "0": "Não",
+            "1": "Sim"
+          }
+        }
+      ],
+      [
+        "diabetes",
+        "Diabetes?",
+        "radio",
+        {
+          "opts": {
+            "0": "Não",
+            "1": "Sim"
+          }
+        }
+      ]
+    ],
+    "formula": "<p>Soma de pontos por sexo (tabelas de D'Agostino, adotadas pela SBC): idade, colesterol total, HDL-c, pressão sistólica (tabelas diferentes para tratada e não tratada), tabagismo e diabetes. A soma é convertida no risco em 10 anos pela tabela de risco do mesmo sexo.</p><p><strong>Estratificação (SBC 2017):</strong> baixo &lt; 5% (ambos os sexos); intermediário 5 a 10% nas mulheres e 5 a 20% nos homens; alto &gt; 10% nas mulheres e &gt; 20% nos homens.</p>",
+    "table": [
+      [
+        "Risco",
+        "Meta de LDL-c",
+        "Meta de não-HDL-c"
+      ],
+      [
+        "Baixo",
+        "&lt; 130 mg/dL",
+        "&lt; 160 mg/dL"
+      ],
+      [
+        "Intermediário",
+        "&lt; 100 mg/dL",
+        "&lt; 130 mg/dL"
+      ],
+      [
+        "Alto",
+        "&lt; 70 mg/dL",
+        "&lt; 100 mg/dL"
+      ],
+      [
+        "Muito alto (aterosclerose significativa)",
+        "&lt; 50 mg/dL",
+        "&lt; 80 mg/dL"
+      ]
+    ],
+    "tips": [
+      "Não use o ERG em quem já tem doença aterosclerótica significativa (coronária, cerebrovascular ou periférica, com ou sem eventos): esses pacientes já são de <strong>muito alto risco</strong>.",
+      "Pela SBC, diabéticos com estratificadores de risco, doença renal crônica, LDL-c ≥ 190 mg/dL e aterosclerose subclínica são classificados como <strong>alto risco</strong> sem precisar do escore.",
+      "No risco intermediário, fatores agravantes (história familiar de DAC precoce, síndrome metabólica, microalbuminúria, hipertrofia de VE, PCR-us &gt; 2 mg/L, escore de cálcio &gt; 100 ou placa carotídea) reclassificam para alto risco.",
+      "Em pacientes com estatina, a SBC orienta usar o colesterol total corrigido (multiplicar por 1,43) para não subestimar o risco.",
+      "As metas de LDL-c são revistas a cada atualização da diretriz: confira sempre a versão vigente da SBC."
+    ],
+    "sources": [
+      [
+        "D'Agostino RB et al. General cardiovascular risk profile for use in primary care: the Framingham Heart Study. Circulation, 2008.",
+        "https://doi.org/10.1161/CIRCULATIONAHA.107.699579"
+      ],
+      [
+        "Faludi AA et al. Atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose – 2017. Arq Bras Cardiol.",
+        "https://doi.org/10.5935/abc.20170121"
+      ]
+    ],
+    "cases": [
+      [
+        "Homem, 55 anos, CT 213, HDL 50, PAS 120 sem tratamento: 11 pontos = 11,2% (intermediário)",
+        {
+          "sexo": "M",
+          "idade": 55,
+          "ct": 213,
+          "hdl": 50,
+          "pas": 120,
+          "tratada": "0",
+          "fumante": "0",
+          "diabetes": "0"
+        },
+        {
+          "raw": {
+            "pts": 11,
+            "risk": 11.2,
+            "cat": "intermediário"
+          },
+          "level": "mid"
+        }
+      ],
+      [
+        "Mulher, 60 anos, CT 220, HDL 45, PAS 135: 10,0% é intermediário (alto só acima de 10%)",
+        {
+          "sexo": "F",
+          "idade": 60,
+          "ct": 220,
+          "hdl": 45,
+          "pas": 135,
+          "tratada": "0",
+          "fumante": "0",
+          "diabetes": "0"
+        },
+        {
+          "raw": {
+            "risk": 10,
+            "cat": "intermediário"
+          }
+        }
+      ],
+      [
+        "Mulher, 62 anos, CT 250, HDL 40, PAS 150 tratada, fumante, diabética: > 30% (alto)",
+        {
+          "sexo": "F",
+          "idade": 62,
+          "ct": 250,
+          "hdl": 40,
+          "pas": 150,
+          "tratada": "1",
+          "fumante": "1",
+          "diabetes": "1"
+        },
+        {
+          "raw": {
+            "risk": ">30",
+            "cat": "alto"
+          },
+          "level": "high"
+        }
+      ],
+      [
+        "Mulher, 35 anos, CT 150, HDL 65, PAS 110: < 1% (baixo)",
+        {
+          "sexo": "F",
+          "idade": 35,
+          "ct": 150,
+          "hdl": 65,
+          "pas": 110,
+          "tratada": "0",
+          "fumante": "0",
+          "diabetes": "0"
+        },
+        {
+          "raw": {
+            "risk": "<1",
+            "cat": "baixo"
+          },
+          "level": "low"
+        }
+      ]
+    ],
+    "batch": "cardiologia",
+    "kind": "Calculadora",
+    "config": null,
+    "areaId": "cardiotoracica",
+    "clinicalReview": "pending",
+    "sourceReview": "pending",
+    "sourceFile": "app/content/ferramentas/cardiologia.php",
+    "arithmeticTest": {
+      "status": "passed",
+      "testedAt": "2026-09-25",
+      "total": 4,
+      "passed": 4,
+      "failures": []
+    },
+    "independentArithmeticTest": {
+      "status": "not-tested",
+      "testedAt": null,
+      "total": 0,
+      "passed": 0,
+      "cases": []
+    }
+  },
+  "review": {
+    "id": "escore-de-risco-global",
+    "status": "restricted",
+    "reason": "O ZIP calcula ERG/Framingham e vincula metas lipídicas da SBC 2017. A diretriz SBC 2025 recomenda PREVENT em adultos elegíveis de 30–79 anos sem doença cardiovascular estabelecida. Manter o registro histórico; suspender o cálculo neste lançamento até versionamento e revisão.",
+    "sourceUrl": "https://abccardiol.org/wp-content/uploads/articles_xml/0066-782X-abc-122-09-e20250640/0066-782X-abc-122-09-e20250640.x74770.pdf",
+    "sourceTitle": "Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose — SBC 2025",
+    "sourceDate": "2025",
+    "publisherRegion": "Brasil",
+    "checkedAt": "2026-09-25",
+    "clinicalValidation": "not-performed",
+    "suppressLegacyFormula": true,
+    "formulaOverride": "ERG/Framingham por pontos, versão histórica importada. A aplicação, os cortes e as metas requerem revisão conforme a diretriz selecionada.",
+    "replacementReadings": [
+      {
+        "url": "https://abccardiol.org/wp-content/uploads/articles_xml/0066-782X-abc-122-09-e20250640/0066-782X-abc-122-09-e20250640.x74770.pdf",
+        "title": "Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose — SBC 2025",
+        "date": "2025",
+        "region": "Brasil"
+      }
+    ]
+  },
+  "sourceFile": {
+    "path": "app/content/ferramentas/cardiologia.php",
+    "sha256": "ed536451dd02922a7f840f2c9ce575be004cddb227f60426b7a52cf1b0e94ec0",
+    "bytes": 61303
+  },
+  "clinicalValidation": "not-performed"
+}

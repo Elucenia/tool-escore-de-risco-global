@@ -1,0 +1,126 @@
+[
+  {
+    "label": "Homem, 55 anos, CT 213, HDL 50, PAS 120 sem tratamento: 11 pontos = 11,2% (intermediário)",
+    "input": {
+      "sexo": "M",
+      "idade": 55,
+      "ct": 213,
+      "hdl": 50,
+      "pas": 120,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0"
+    },
+    "expected": {
+      "raw": {
+        "pts": 11,
+        "risk": 11.2,
+        "cat": "intermediário"
+      },
+      "level": "mid"
+    },
+    "originalInput": {
+      "sexo": "M",
+      "idade": 55,
+      "ct": 213,
+      "hdl": 50,
+      "pas": 120,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0"
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Mulher, 60 anos, CT 220, HDL 45, PAS 135: 10,0% é intermediário (alto só acima de 10%)",
+    "input": {
+      "sexo": "F",
+      "idade": 60,
+      "ct": 220,
+      "hdl": 45,
+      "pas": 135,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0"
+    },
+    "expected": {
+      "raw": {
+        "risk": 10,
+        "cat": "intermediário"
+      }
+    },
+    "originalInput": {
+      "sexo": "F",
+      "idade": 60,
+      "ct": 220,
+      "hdl": 45,
+      "pas": 135,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0"
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Mulher, 62 anos, CT 250, HDL 40, PAS 150 tratada, fumante, diabética: > 30% (alto)",
+    "input": {
+      "sexo": "F",
+      "idade": 62,
+      "ct": 250,
+      "hdl": 40,
+      "pas": 150,
+      "tratada": "1",
+      "fumante": "1",
+      "diabetes": "1"
+    },
+    "expected": {
+      "raw": {
+        "risk": ">30",
+        "cat": "alto"
+      },
+      "level": "high"
+    },
+    "originalInput": {
+      "sexo": "F",
+      "idade": 62,
+      "ct": 250,
+      "hdl": 40,
+      "pas": 150,
+      "tratada": "1",
+      "fumante": "1",
+      "diabetes": "1"
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Mulher, 35 anos, CT 150, HDL 65, PAS 110: < 1% (baixo)",
+    "input": {
+      "sexo": "F",
+      "idade": 35,
+      "ct": 150,
+      "hdl": 65,
+      "pas": 110,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0"
+    },
+    "expected": {
+      "raw": {
+        "risk": "<1",
+        "cat": "baixo"
+      },
+      "level": "low"
+    },
+    "originalInput": {
+      "sexo": "F",
+      "idade": 35,
+      "ct": 150,
+      "hdl": 65,
+      "pas": 110,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0"
+    },
+    "expandedZeroOptions": []
+  }
+]
