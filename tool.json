@@ -228,13 +228,9 @@
         }
       ]
     ],
-    "batch": "cardiologia",
     "kind": "Calculadora",
     "config": null,
-    "areaId": "cardiotoracica",
     "clinicalReview": "pending",
-    "sourceReview": "pending",
-    "sourceFile": "app/content/ferramentas/cardiologia.php",
     "arithmeticTest": {
       "status": "passed",
       "testedAt": "2026-09-25",
@@ -270,11 +266,6 @@
         "region": "Brasil"
       }
     ]
-  },
-  "sourceFile": {
-    "path": "app/content/ferramentas/cardiologia.php",
-    "sha256": "ed536451dd02922a7f840f2c9ce575be004cddb227f60426b7a52cf1b0e94ec0",
-    "bytes": 61303
   },
   "clinicalValidation": "not-performed"
 }
