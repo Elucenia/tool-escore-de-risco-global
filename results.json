@@ -1,0 +1,285 @@
+{
+  "at": "2026-10-05T15:24:37.068Z",
+  "id": "escore-de-risco-global",
+  "engine": {
+    "file": "apps/website/private/tool-code/escore-de-risco-global/calculator.js",
+    "bytes": 505,
+    "sha256": "aa67d55183d3aec94bc6c1185daa1221a1f5cab68d0249c048e6bdfdcebaee70"
+  },
+  "sourceParity": "Node current source / per-tool browser VM outputs match",
+  "cases": [
+    {
+      "id": "escore-de-risco-global",
+      "index": 0,
+      "name": "Vetor sintético principal de referência",
+      "input": {
+        "sexo": "M",
+        "idade": 55,
+        "ct": 200,
+        "hdl": 45,
+        "pas": 130,
+        "tratada": "0",
+        "fumante": "0",
+        "diabetes": "0",
+        "contexto": "1"
+      },
+      "expected": {
+        "raw": {
+          "risk": 12.148639774148753,
+          "linear": 24.07972983235777
+        },
+        "main": "12,15",
+        "tol": 1e-9
+      },
+      "obtained": {
+        "id": "escore-de-risco-global",
+        "main": [
+          "12,15",
+          "%"
+        ],
+        "label": "Framingham 2008 · 10 anos",
+        "raw": {
+          "risk": 12.148639774148762,
+          "linear": 24.079729832357774
+        },
+        "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "escore-de-risco-global",
+        "main": [
+          "12,15",
+          "%"
+        ],
+        "label": "Framingham 2008 · 10 anos",
+        "raw": {
+          "risk": 12.148639774148762,
+          "linear": 24.079729832357774
+        },
+        "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "12,15",
+          "obtained": "12,15",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.risk",
+          "expected": 12.148639774148753,
+          "obtained": 12.148639774148762,
+          "tolerance": 1e-9,
+          "difference": 8.881784197001252e-15,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.linear",
+          "expected": 24.07972983235777,
+          "obtained": 24.079729832357774,
+          "tolerance": 1e-9,
+          "difference": 3.552713678800501e-15,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.risk",
+          "expected": 12.148639774148762,
+          "obtained": 12.148639774148762,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.linear",
+          "expected": 24.079729832357774,
+          "obtained": 24.079729832357774,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "12,15",
+          "obtained": "12,15",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "%",
+          "obtained": "%",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    },
+    {
+      "id": "escore-de-risco-global",
+      "index": 1,
+      "name": "Mulher55:coeficientes contínuos2008",
+      "input": {
+        "sexo": "F",
+        "idade": 55,
+        "ct": 200,
+        "hdl": 45,
+        "pas": 130,
+        "tratada": "0",
+        "fumante": "0",
+        "diabetes": "0",
+        "contexto": "1"
+      },
+      "expected": {
+        "raw": {
+          "risk": 6.616180425503274,
+          "linear": 26.484139608241048
+        },
+        "main": "6,62",
+        "tol": 1e-9
+      },
+      "obtained": {
+        "id": "escore-de-risco-global",
+        "main": [
+          "6,62",
+          "%"
+        ],
+        "label": "Framingham 2008 · 10 anos",
+        "raw": {
+          "risk": 6.616180425503249,
+          "linear": 26.484139608241044
+        },
+        "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "escore-de-risco-global",
+        "main": [
+          "6,62",
+          "%"
+        ],
+        "label": "Framingham 2008 · 10 anos",
+        "raw": {
+          "risk": 6.616180425503249,
+          "linear": 26.484139608241044
+        },
+        "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "6,62",
+          "obtained": "6,62",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.risk",
+          "expected": 6.616180425503274,
+          "obtained": 6.616180425503249,
+          "tolerance": 1e-9,
+          "difference": 2.5757174171303632e-14,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.linear",
+          "expected": 26.484139608241048,
+          "obtained": 26.484139608241044,
+          "tolerance": 1e-9,
+          "difference": 3.552713678800501e-15,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.risk",
+          "expected": 6.616180425503249,
+          "obtained": 6.616180425503249,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.linear",
+          "expected": 26.484139608241044,
+          "obtained": 26.484139608241044,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "6,62",
+          "obtained": "6,62",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "%",
+          "obtained": "%",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    }
+  ],
+  "summary": {
+    "cases": 2,
+    "passed": 2,
+    "failed": 0,
+    "checks": 20
+  },
+  "newIndependentOracle": false,
+  "clinicalApproval": false,
+  "professionalLanguageApproval": false
+}

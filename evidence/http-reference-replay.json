@@ -1,0 +1,554 @@
+{
+  "receipt": {
+    "file": "reports/review-20261005-completion/deploy-lock/r5-all-calculators-http-results.json",
+    "bytes": 7105457,
+    "sha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7"
+  },
+  "build": {
+    "id": "RYDdJbZxqrM8sgoyKEQc-",
+    "standaloneServer": {
+      "file": "reports/review-20261005-completion/deploy-lock/r5-isolated-runtime/.next/standalone/server.js",
+      "sha256": "631d43264038e7aa367b5405041eb3706d73fd3366925a7ef17a07119cfa166e",
+      "bytes": 10457
+    },
+    "catalogPin": {
+      "file": "deliveries/elucenia-next-hostinger-r5/.next/server/pages/en/tools.json",
+      "sha256": "33917dfdae9bea59cae22bfca34eaef2a21046a832af98c1a8d2718075de63ec",
+      "bytes": 103793
+    }
+  },
+  "scope": {
+    "syntheticDataOnly": true,
+    "applicationModuleImports": 0,
+    "browserInteractions": 0,
+    "newIndependentOracles": 0,
+    "nativeSourceReferenceCases": 882,
+    "additionalDecimalCases": 4,
+    "clinicalApproval": false,
+    "professionalLanguageApproval": false,
+    "populationValidation": false,
+    "hostingerDeploymentVerified": false,
+    "actualHTTPExecution": true,
+    "standaloneNodeServer": true,
+    "nodeVersion": "v22.18.0",
+    "noNewClinicalOrProfessionalApproval": true,
+    "pubmedResourceIsNotCalculatorAndNotIncludedIn222": true,
+    "description": "All 882 existing reference cases across the 218 native calculators plus four existing Decimal50 examples, executed via HTTP against the final local r5 standalone build. Raw precise source-audit comparisons are transport regressions, not independent clinical or full-method validation."
+  },
+  "tool": {
+    "id": "escore-de-risco-global",
+    "title": "Risco cardiovascular de Framingham 2008",
+    "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+    "implementationVersion": "escore-de-risco-global@native-2026-10-04+aa67d55183d3",
+    "sources": [
+      [
+        "Framingham Heart Study · General CVD 10-year risk · coeficientes originais",
+        "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/"
+      ],
+      [
+        "D'Agostino RB et al. General cardiovascular risk profile for use in primary care: the Framingham Heart Study. Circulation, 2008.",
+        "https://doi.org/10.1161/CIRCULATIONAHA.107.699579"
+      ],
+      [
+        "Faludi AA et al. Atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose – 2017. Arq Bras Cardiol.",
+        "https://doi.org/10.5935/abc.20170121"
+      ]
+    ],
+    "limits": "População original de 30–74 anos sem doença cardiovascular. Não representa PREVENT nem diretriz SBC 2025. Não aplica metas lipídicas ou tratamentos. A calibração local exige conferência.",
+    "sourceEditionEvidence": [
+      {
+        "citation": "Framingham Heart Study · General CVD 10-year risk · coeficientes originais",
+        "url": "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/",
+        "class": "existing-source-record-transcribed",
+        "declaredCitationPreserved": true,
+        "sourceIdentityRecheckedInThisNormalization": false,
+        "publicationEditionConfirmationInThisNormalization": "not-performed",
+        "fullTextRetrievalInThisNormalization": false,
+        "formulaConformance": "not-assessed"
+      },
+      {
+        "citation": "D'Agostino RB et al. General cardiovascular risk profile for use in primary care: the Framingham Heart Study. Circulation, 2008.",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.107.699579",
+        "class": "existing-source-record-transcribed",
+        "declaredCitationPreserved": true,
+        "sourceIdentityRecheckedInThisNormalization": false,
+        "publicationEditionConfirmationInThisNormalization": "not-performed",
+        "fullTextRetrievalInThisNormalization": false,
+        "formulaConformance": "not-assessed"
+      },
+      {
+        "citation": "Faludi AA et al. Atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose – 2017. Arq Bras Cardiol.",
+        "url": "https://doi.org/10.5935/abc.20170121",
+        "class": "existing-source-record-transcribed",
+        "declaredCitationPreserved": true,
+        "sourceIdentityRecheckedInThisNormalization": false,
+        "publicationEditionConfirmationInThisNormalization": "not-performed",
+        "fullTextRetrievalInThisNormalization": false,
+        "formulaConformance": "not-assessed"
+      }
+    ],
+    "calculator": {
+      "file": "deliveries/elucenia-next-hostinger-r5/private/tool-code/escore-de-risco-global/calculator.js",
+      "sha256": "aa67d55183d3aec94bc6c1185daa1221a1f5cab68d0249c048e6bdfdcebaee70",
+      "bytes": 505
+    },
+    "cases": 2,
+    "clinicalApproval": false,
+    "professionalLanguageApproval": false,
+    "replayed": 2,
+    "passed": 2,
+    "failed": 0,
+    "status": "passed"
+  },
+  "results": [
+    {
+      "id": "escore-de-risco-global",
+      "kind": "native-source-reference",
+      "index": 0,
+      "name": "Vetor sintético principal de referência",
+      "originalInput": {
+        "sexo": "M",
+        "idade": 55,
+        "ct": 200,
+        "hdl": 45,
+        "pas": 130,
+        "tratada": "0",
+        "fumante": "0",
+        "diabetes": "0",
+        "contexto": "1"
+      },
+      "input": {
+        "sexo": "M",
+        "idade": 55,
+        "ct": 200,
+        "hdl": 45,
+        "pas": 130,
+        "tratada": "0",
+        "fumante": "0",
+        "diabetes": "0",
+        "contexto": "1"
+      },
+      "amendments": [],
+      "expected": {
+        "raw": {
+          "risk": 12.148639774148753,
+          "linear": 24.07972983235777
+        },
+        "main": "12,15",
+        "tol": 1e-9
+      },
+      "recordedResult": {
+        "main": [
+          "12,15",
+          "%"
+        ],
+        "label": "Framingham 2008 · 10 anos",
+        "raw": {
+          "risk": 12.148639774148762,
+          "linear": 24.079729832357774
+        }
+      },
+      "provenance": {
+        "bank": {
+          "file": "reports/review-20261003/source-cases-audit.json",
+          "sha256": "da6d27d65bcaed56528da83bd0ffaa3d407fc467ea7f9cb67ec40a1a78c6febf",
+          "bytes": 885399
+        },
+        "canonical": {
+          "file": "deliveries/elucenia-next-hostinger-r5/private/canonical-medical-tools.json",
+          "sha256": "988c58b5409ecc0df7e05193d88c7df930af9ce187b0688534a31f6d627ee4ad",
+          "bytes": 29045565
+        },
+        "scope": "Existing recorded source expectations and precise source-audit transport baseline; no newly derived independent oracle"
+      },
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:3062/api/tools/escore-de-risco-global/calculate",
+        "origin": "http://127.0.0.1:3062",
+        "payload": {
+          "input": {
+            "sexo": "M",
+            "idade": 55,
+            "ct": 200,
+            "hdl": 45,
+            "pas": 130,
+            "tratada": "0",
+            "fumante": "0",
+            "diabetes": "0",
+            "contexto": "1"
+          }
+        }
+      },
+      "attempts": [
+        {
+          "url": "http://127.0.0.1:3062/api/tools/escore-de-risco-global/calculate",
+          "startedAt": "2026-10-05T15:14:30.163Z",
+          "status": 200,
+          "headers": {
+            "contentType": "application/json; charset=utf-8",
+            "retryAfter": null,
+            "cacheControl": "no-store",
+            "nosniff": "nosniff"
+          },
+          "body": {
+            "result": {
+              "id": "escore-de-risco-global",
+              "main": [
+                "12,15",
+                "%"
+              ],
+              "label": "Framingham 2008 · 10 anos",
+              "raw": {
+                "risk": 12.148639774148762,
+                "linear": 24.079729832357774
+              },
+              "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+              "clinicalValidation": "not-performed"
+            }
+          },
+          "responseSha256": "31703afbcd2d4d3ce6594264a480201d9f57f305873952fbf426cec612e018a3",
+          "bytes": 289,
+          "elapsedMs": 3.1398000000044703
+        }
+      ],
+      "observed": {
+        "url": "http://127.0.0.1:3062/api/tools/escore-de-risco-global/calculate",
+        "startedAt": "2026-10-05T15:14:30.163Z",
+        "status": 200,
+        "headers": {
+          "contentType": "application/json; charset=utf-8",
+          "retryAfter": null,
+          "cacheControl": "no-store",
+          "nosniff": "nosniff"
+        },
+        "body": {
+          "result": {
+            "id": "escore-de-risco-global",
+            "main": [
+              "12,15",
+              "%"
+            ],
+            "label": "Framingham 2008 · 10 anos",
+            "raw": {
+              "risk": 12.148639774148762,
+              "linear": 24.079729832357774
+            },
+            "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+            "clinicalValidation": "not-performed"
+          }
+        },
+        "responseSha256": "31703afbcd2d4d3ce6594264a480201d9f57f305873952fbf426cec612e018a3",
+        "bytes": 289,
+        "elapsedMs": 3.1398000000044703
+      },
+      "evaluation": {
+        "checks": [
+          {
+            "at": "status",
+            "expected": 200,
+            "obtained": 200,
+            "passed": true
+          },
+          {
+            "at": "result-object",
+            "expected": true,
+            "obtained": true,
+            "passed": true
+          },
+          {
+            "at": "result.main",
+            "expected": "12,15",
+            "obtained": "12,15",
+            "scope": "Recorded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.risk",
+            "expected": 12.148639774148753,
+            "obtained": 12.148639774148762,
+            "tolerance": 1e-9,
+            "difference": 8.881784197001252e-15,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.linear",
+            "expected": 24.07972983235777,
+            "obtained": 24.079729832357774,
+            "tolerance": 1e-9,
+            "difference": 3.552713678800501e-15,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.risk",
+            "expected": 12.148639774148762,
+            "obtained": 12.148639774148762,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.linear",
+            "expected": 24.079729832357774,
+            "obtained": 24.079729832357774,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main.length",
+            "expected": 2,
+            "obtained": 2,
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[0]",
+            "expected": "12,15",
+            "obtained": "12,15",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[1]",
+            "expected": "%",
+            "obtained": "%",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          }
+        ],
+        "notCompared": []
+      },
+      "status": "passed",
+      "error": null
+    },
+    {
+      "id": "escore-de-risco-global",
+      "kind": "native-source-reference",
+      "index": 1,
+      "name": "Mulher55:coeficientes contínuos2008",
+      "originalInput": {
+        "sexo": "F",
+        "idade": 55,
+        "ct": 200,
+        "hdl": 45,
+        "pas": 130,
+        "tratada": "0",
+        "fumante": "0",
+        "diabetes": "0",
+        "contexto": "1"
+      },
+      "input": {
+        "sexo": "F",
+        "idade": 55,
+        "ct": 200,
+        "hdl": 45,
+        "pas": 130,
+        "tratada": "0",
+        "fumante": "0",
+        "diabetes": "0",
+        "contexto": "1"
+      },
+      "amendments": [],
+      "expected": {
+        "raw": {
+          "risk": 6.616180425503274,
+          "linear": 26.484139608241048
+        },
+        "main": "6,62",
+        "tol": 1e-9
+      },
+      "recordedResult": {
+        "main": [
+          "6,62",
+          "%"
+        ],
+        "label": "Framingham 2008 · 10 anos",
+        "raw": {
+          "risk": 6.616180425503249,
+          "linear": 26.484139608241044
+        }
+      },
+      "provenance": {
+        "bank": {
+          "file": "reports/review-20261003/source-cases-audit.json",
+          "sha256": "da6d27d65bcaed56528da83bd0ffaa3d407fc467ea7f9cb67ec40a1a78c6febf",
+          "bytes": 885399
+        },
+        "canonical": {
+          "file": "deliveries/elucenia-next-hostinger-r5/private/canonical-medical-tools.json",
+          "sha256": "988c58b5409ecc0df7e05193d88c7df930af9ce187b0688534a31f6d627ee4ad",
+          "bytes": 29045565
+        },
+        "scope": "Existing recorded source expectations and precise source-audit transport baseline; no newly derived independent oracle"
+      },
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:3062/api/tools/escore-de-risco-global/calculate",
+        "origin": "http://127.0.0.1:3062",
+        "payload": {
+          "input": {
+            "sexo": "F",
+            "idade": 55,
+            "ct": 200,
+            "hdl": 45,
+            "pas": 130,
+            "tratada": "0",
+            "fumante": "0",
+            "diabetes": "0",
+            "contexto": "1"
+          }
+        }
+      },
+      "attempts": [
+        {
+          "url": "http://127.0.0.1:3062/api/tools/escore-de-risco-global/calculate",
+          "startedAt": "2026-10-05T15:14:30.475Z",
+          "status": 200,
+          "headers": {
+            "contentType": "application/json; charset=utf-8",
+            "retryAfter": null,
+            "cacheControl": "no-store",
+            "nosniff": "nosniff"
+          },
+          "body": {
+            "result": {
+              "id": "escore-de-risco-global",
+              "main": [
+                "6,62",
+                "%"
+              ],
+              "label": "Framingham 2008 · 10 anos",
+              "raw": {
+                "risk": 6.616180425503249,
+                "linear": 26.484139608241044
+              },
+              "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+              "clinicalValidation": "not-performed"
+            }
+          },
+          "responseSha256": "e23ca59a33ffa3799c032e8a1f76ad6d34a1ccb235a34bc6999ea34e22e8c251",
+          "bytes": 287,
+          "elapsedMs": 2.816399999996065
+        }
+      ],
+      "observed": {
+        "url": "http://127.0.0.1:3062/api/tools/escore-de-risco-global/calculate",
+        "startedAt": "2026-10-05T15:14:30.475Z",
+        "status": 200,
+        "headers": {
+          "contentType": "application/json; charset=utf-8",
+          "retryAfter": null,
+          "cacheControl": "no-store",
+          "nosniff": "nosniff"
+        },
+        "body": {
+          "result": {
+            "id": "escore-de-risco-global",
+            "main": [
+              "6,62",
+              "%"
+            ],
+            "label": "Framingham 2008 · 10 anos",
+            "raw": {
+              "risk": 6.616180425503249,
+              "linear": 26.484139608241044
+            },
+            "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+            "clinicalValidation": "not-performed"
+          }
+        },
+        "responseSha256": "e23ca59a33ffa3799c032e8a1f76ad6d34a1ccb235a34bc6999ea34e22e8c251",
+        "bytes": 287,
+        "elapsedMs": 2.816399999996065
+      },
+      "evaluation": {
+        "checks": [
+          {
+            "at": "status",
+            "expected": 200,
+            "obtained": 200,
+            "passed": true
+          },
+          {
+            "at": "result-object",
+            "expected": true,
+            "obtained": true,
+            "passed": true
+          },
+          {
+            "at": "result.main",
+            "expected": "6,62",
+            "obtained": "6,62",
+            "scope": "Recorded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.risk",
+            "expected": 6.616180425503274,
+            "obtained": 6.616180425503249,
+            "tolerance": 1e-9,
+            "difference": 2.5757174171303632e-14,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.linear",
+            "expected": 26.484139608241048,
+            "obtained": 26.484139608241044,
+            "tolerance": 1e-9,
+            "difference": 3.552713678800501e-15,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.risk",
+            "expected": 6.616180425503249,
+            "obtained": 6.616180425503249,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.linear",
+            "expected": 26.484139608241044,
+            "obtained": 26.484139608241044,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main.length",
+            "expected": 2,
+            "obtained": 2,
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[0]",
+            "expected": "6,62",
+            "obtained": "6,62",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[1]",
+            "expected": "%",
+            "obtained": "%",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          }
+        ],
+        "notCompared": []
+      },
+      "status": "passed",
+      "error": null
+    }
+  ],
+  "endBindings": true
+}

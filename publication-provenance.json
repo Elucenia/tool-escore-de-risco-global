@@ -1,0 +1,270 @@
+{
+  "schema": "elucenia-current-per-tool-local-publication-candidate",
+  "id": "escore-de-risco-global",
+  "repository": "Elucenia/tool-escore-de-risco-global",
+  "parentCommitSha": "36532461f63fd12f0c5e1812a24e614e3e300297",
+  "baseTreeSha": "d9cf48aa449ca967f1e7a9d35deb0af85943f44c",
+  "protectedFiles": {
+    "LICENSE": {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "size": 11358,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    "NOTICE": {
+      "path": "NOTICE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9f496cc522ebe46ad4dab6b26f8bbe51092f71b",
+      "size": 1641,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/b9f496cc522ebe46ad4dab6b26f8bbe51092f71b"
+    },
+    "AUTHORSHIP.md": {
+      "path": "AUTHORSHIP.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57805f3c964d10ebeb947c5c72e950e2601d5ef1",
+      "size": 3305,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/57805f3c964d10ebeb947c5c72e950e2601d5ef1"
+    },
+    "CITATION.cff": {
+      "path": "CITATION.cff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a4c45aedd52e22b5fc9a39720e44194630b3ced",
+      "size": 915,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/3a4c45aedd52e22b5fc9a39720e44194630b3ced"
+    },
+    "SECURITY.md": {
+      "path": "SECURITY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+      "size": 894,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/44eafb996937916cbe53e24fa9c5208fe03d5767"
+    },
+    "CONTRIBUTING.md": {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a53a0c765079759ef1fc6aa1e0cd8137bf0ef59f",
+      "size": 1473,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/a53a0c765079759ef1fc6aa1e0cd8137bf0ef59f"
+    },
+    ".github/workflows/ci.yml": {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+      "size": 279,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/7d3f2f34aa2e948d30695d82d64361467d9e6485"
+    },
+    ".gitattributes": {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+      "size": 19,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/6313b56c57848efce05faa7aa7e901ccfc2886ea"
+    },
+    ".gitignore": {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+      "size": 42,
+      "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/e375bd25cf1a574310ac4c7af0299884556e81e1"
+    }
+  },
+  "oldCandidate": {
+    "manifest": {
+      "file": "reports/review-20261003/github-publication-candidate-final36-v4.json",
+      "bytes": 6823260,
+      "sha256": "a3c528b12d7b5416fa0e62dda9e5106864bae7ff86710fa765934b5a3069e16c"
+    },
+    "rowId": "escore-de-risco-global",
+    "publicationProvenance": {
+      "file": "reports/review-20261003/github-publication-candidates-final36-v4/escore-de-risco-global/publication-provenance.json",
+      "bytes": 5397,
+      "sha256": "745d0f7cc4757224b98c7fa4ce37b5c6100b3353e3a4328fc28790ad4221f136"
+    },
+    "integrationProvenance": {
+      "file": "reports/review-20261003/github-publication-candidates-final36-v4/escore-de-risco-global/provenance.json",
+      "bytes": 56267,
+      "sha256": "30a06072e58af1f2bca9489f989d7d3f880ab96d098b691d29a93e1bd9a81f07"
+    }
+  },
+  "currentSource": {
+    "file": "apps/website/private/tool-code/escore-de-risco-global/calculator.js",
+    "bytes": 505,
+    "sha256": "aa67d55183d3aec94bc6c1185daa1221a1f5cab68d0249c048e6bdfdcebaee70"
+  },
+  "sourceToolSha256": "403e7786725ff253ad9160d657ebeef92d5172d65b14a0e2d538c6f5b764026f",
+  "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+  "implementationVersion": "escore-de-risco-global@native-2026-10-04+aa67d55183d3",
+  "browserBundleSha256": "ea43b66d93625634fb4868ab363d0f582066ebc29481b3582f6745cca8f17509",
+  "graph": {
+    "entry": "tool-code/escore-de-risco-global/calculator.js",
+    "modules": [
+      {
+        "file": "tool-code/escore-de-risco-global/calculator.js",
+        "bytes": 505,
+        "sha256": "aa67d55183d3aec94bc6c1185daa1221a1f5cab68d0249c048e6bdfdcebaee70"
+      },
+      {
+        "file": "restored-methods.cjs",
+        "bytes": 4990,
+        "sha256": "b677ef290a360e6484ee4af8a6fef5742244709f10f58d1f6fce5168a9cac66c"
+      },
+      {
+        "file": "restoration-original-tools.json",
+        "bytes": 2003,
+        "sha256": "06910acc967995f608e24be421997042039685ed69e47b3649c870edb9f1d405"
+      }
+    ],
+    "transforms": [
+      {
+        "file": "restored-methods.cjs",
+        "sourceSha256": "630dccade18742e4bc364b32f4ef4d6bc75aeceb262face8ddae806be7962c23",
+        "kind": "Deterministic AST selection of one existing define call plus unchanged shared arithmetic/schema helpers",
+        "selectedId": "escore-de-risco-global",
+        "otherMethodDefinitionsIncluded": 0
+      },
+      {
+        "file": "restoration-original-tools.json",
+        "sourceSha256": "ccee00665e024104d254acf77a43609acb02d593e016ee8c6b7cebf3769da389",
+        "kind": "One original field/source contract only; no other tools, reference banks or original results",
+        "selectedId": "escore-de-risco-global",
+        "keys": [
+          "id",
+          "title",
+          "fields",
+          "sources"
+        ]
+      }
+    ]
+  },
+  "currentActualHttpEvidence": {
+    "file": "reports/review-20261005-completion/deploy-lock/r5-all-calculators-http-results.json",
+    "bytes": 7105457,
+    "sha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7"
+  },
+  "tests": {
+    "cases": 2,
+    "sourceNodeParityPassed": true,
+    "browserVmParityPassed": true,
+    "independentOracleDerived": false,
+    "actualBrowserDOMVerified": false
+  },
+  "rights": {
+    "historicalPayloadLicenseDeclaration": "Apache-2.0",
+    "currentIntegrationPackageLicenseDeclaration": "MIT",
+    "currentLegalFiles": [
+      {
+        "file": "apps/command-center/private/tool-code/escore-de-risco-global/LICENSE",
+        "bytes": 1229,
+        "sha256": "51c010d285894558695812b9883d9c9ae7c9c89526f43597917e778965e65d93"
+      },
+      {
+        "file": "apps/command-center/private/tool-code/escore-de-risco-global/NOTICE.md",
+        "bytes": 1183,
+        "sha256": "b7d5eaa1074d1673caf885ac49b38e9b54b2c6086b45072eacf7b3fe139d8a6d"
+      }
+    ],
+    "protectedFilesPreservedFromOldPayload": [],
+    "protectedRemoteAttributionReferences": {
+      "LICENSE": {
+        "path": "LICENSE",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+        "size": 11358,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7"
+      },
+      "NOTICE": {
+        "path": "NOTICE",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "b9f496cc522ebe46ad4dab6b26f8bbe51092f71b",
+        "size": 1641,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/b9f496cc522ebe46ad4dab6b26f8bbe51092f71b"
+      },
+      "AUTHORSHIP.md": {
+        "path": "AUTHORSHIP.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "57805f3c964d10ebeb947c5c72e950e2601d5ef1",
+        "size": 3305,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/57805f3c964d10ebeb947c5c72e950e2601d5ef1"
+      },
+      "CITATION.cff": {
+        "path": "CITATION.cff",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "3a4c45aedd52e22b5fc9a39720e44194630b3ced",
+        "size": 915,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/3a4c45aedd52e22b5fc9a39720e44194630b3ced"
+      },
+      "SECURITY.md": {
+        "path": "SECURITY.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+        "size": 894,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/44eafb996937916cbe53e24fa9c5208fe03d5767"
+      },
+      "CONTRIBUTING.md": {
+        "path": "CONTRIBUTING.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "a53a0c765079759ef1fc6aa1e0cd8137bf0ef59f",
+        "size": 1473,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/a53a0c765079759ef1fc6aa1e0cd8137bf0ef59f"
+      },
+      ".github/workflows/ci.yml": {
+        "path": ".github/workflows/ci.yml",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+        "size": 279,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/7d3f2f34aa2e948d30695d82d64361467d9e6485"
+      },
+      ".gitattributes": {
+        "path": ".gitattributes",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+        "size": 19,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/6313b56c57848efce05faa7aa7e901ccfc2886ea"
+      },
+      ".gitignore": {
+        "path": ".gitignore",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+        "size": 42,
+        "url": "https://api.github.com/repos/Elucenia/tool-escore-de-risco-global/git/blobs/e375bd25cf1a574310ac4c7af0299884556e81e1"
+      }
+    },
+    "sourceSpecificEvidence": {
+      "sourceSpecificStatus": "not-approved-by-this-consolidation",
+      "sourceSpecificEvidence": null,
+      "wholeInstrumentApproval": false,
+      "oldCandidateInstrumentRightsApproval": "not-performed"
+    },
+    "scope": "Historical Apache declaration and current MIT integration notices retained with exact sources; no relicensing or instrument approval inferred",
+    "reviewRequired": true,
+    "divergences": [
+      "Historical payload and current package declare different license labels; scope/authorship mapping must be reviewed before distribution"
+    ],
+    "wholeInstrumentApproval": false
+  },
+  "appWrites": false,
+  "externalMutations": false,
+  "publicationPerformed": false,
+  "externalPublicationReady": false,
+  "clinicalApproval": false,
+  "professionalLanguageApproval": false
+}

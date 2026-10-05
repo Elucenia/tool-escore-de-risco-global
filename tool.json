@@ -1,16 +1,16 @@
 {
   "tool": {
     "id": "escore-de-risco-global",
-    "title": "Escore de Risco Global",
-    "short": "Risco de eventos cardiovasculares em 10 anos",
+    "title": "Risco cardiovascular de Framingham 2008",
+    "short": "Modelo histórico contínuo de risco cardiovascular em dez anos",
+    "desc": "Estima risco cardiovascular pelo modelo contínuo de Framingham de 2008, na população e com as variáveis da publicação. Esta edição histórica não aplica metas de LDL nem o modelo PREVENT.",
+    "lead": "Estima risco cardiovascular pelo modelo contínuo de Framingham de 2008, na população e com as variáveis da publicação. Esta edição histórica não aplica metas de LDL nem o modelo PREVENT.",
+    "kind": "Calculadora",
     "spec": [
       "cardiologia",
       "medicina-de-familia-e-comunidade",
       "clinica-medica"
     ],
-    "tier": 1,
-    "desc": "Calcule o Escore de Risco Global (ERG) da SBC: risco de infarto, AVC, doença arterial periférica ou insuficiência cardíaca em 10 anos, com as metas de LDL-c e não-HDL-c.",
-    "lead": "Estima o risco de infarto do miocárdio, acidente vascular cerebral, insuficiência vascular periférica ou insuficiência cardíaca em 10 anos, em pessoas de 30 a 74 anos sem doença aterosclerótica estabelecida.",
     "fields": [
       [
         "sexo",
@@ -29,7 +29,7 @@
         "num",
         {
           "min": 30,
-          "max": 99,
+          "max": 74,
           "unit": "anos",
           "ph": "55"
         }
@@ -99,44 +99,25 @@
             "1": "Sim"
           }
         }
+      ],
+      [
+        "contexto",
+        "Sem doença cardiovascular estabelecida; uso da versão histórica Framingham 2008 confirmado?",
+        "sel",
+        {
+          "opts": {
+            "0": "Não",
+            "1": "Sim"
+          }
+        }
       ]
     ],
-    "formula": "<p>Soma de pontos por sexo (tabelas de D'Agostino, adotadas pela SBC): idade, colesterol total, HDL-c, pressão sistólica (tabelas diferentes para tratada e não tratada), tabagismo e diabetes. A soma é convertida no risco em 10 anos pela tabela de risco do mesmo sexo.</p><p><strong>Estratificação (SBC 2017):</strong> baixo &lt; 5% (ambos os sexos); intermediário 5 a 10% nas mulheres e 5 a 20% nos homens; alto &gt; 10% nas mulheres e &gt; 20% nos homens.</p>",
-    "table": [
-      [
-        "Risco",
-        "Meta de LDL-c",
-        "Meta de não-HDL-c"
-      ],
-      [
-        "Baixo",
-        "&lt; 130 mg/dL",
-        "&lt; 160 mg/dL"
-      ],
-      [
-        "Intermediário",
-        "&lt; 100 mg/dL",
-        "&lt; 130 mg/dL"
-      ],
-      [
-        "Alto",
-        "&lt; 70 mg/dL",
-        "&lt; 100 mg/dL"
-      ],
-      [
-        "Muito alto (aterosclerose significativa)",
-        "&lt; 50 mg/dL",
-        "&lt; 80 mg/dL"
-      ]
-    ],
-    "tips": [
-      "Não use o ERG em quem já tem doença aterosclerótica significativa (coronária, cerebrovascular ou periférica, com ou sem eventos): esses pacientes já são de <strong>muito alto risco</strong>.",
-      "Pela SBC, diabéticos com estratificadores de risco, doença renal crônica, LDL-c ≥ 190 mg/dL e aterosclerose subclínica são classificados como <strong>alto risco</strong> sem precisar do escore.",
-      "No risco intermediário, fatores agravantes (história familiar de DAC precoce, síndrome metabólica, microalbuminúria, hipertrofia de VE, PCR-us &gt; 2 mg/L, escore de cálcio &gt; 100 ou placa carotídea) reclassificam para alto risco.",
-      "Em pacientes com estatina, a SBC orienta usar o colesterol total corrigido (multiplicar por 1,43) para não subestimar o risco.",
-      "As metas de LDL-c são revistas a cada atualização da diretriz: confira sempre a versão vigente da SBC."
-    ],
+    "formula": "<p>Risco em 10 anos = 100 × [1 − S₀^exp(ΣβX − média)]. Coeficientes por sexo do modelo contínuo com idade, colesterol total, HDL, PAS tratada/não tratada, tabagismo e diabetes.</p>",
     "sources": [
+      [
+        "Framingham Heart Study · General CVD 10-year risk · coeficientes originais",
+        "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/"
+      ],
       [
         "D'Agostino RB et al. General cardiovascular risk profile for use in primary care: the Framingham Heart Study. Circulation, 2008.",
         "https://doi.org/10.1161/CIRCULATIONAHA.107.699579"
@@ -148,124 +129,471 @@
     ],
     "cases": [
       [
-        "Homem, 55 anos, CT 213, HDL 50, PAS 120 sem tratamento: 11 pontos = 11,2% (intermediário)",
+        "Vetor sintético principal de referência",
         {
           "sexo": "M",
           "idade": 55,
-          "ct": 213,
-          "hdl": 50,
-          "pas": 120,
-          "tratada": "0",
-          "fumante": "0",
-          "diabetes": "0"
-        },
-        {
-          "raw": {
-            "pts": 11,
-            "risk": 11.2,
-            "cat": "intermediário"
-          },
-          "level": "mid"
-        }
-      ],
-      [
-        "Mulher, 60 anos, CT 220, HDL 45, PAS 135: 10,0% é intermediário (alto só acima de 10%)",
-        {
-          "sexo": "F",
-          "idade": 60,
-          "ct": 220,
+          "ct": 200,
           "hdl": 45,
-          "pas": 135,
+          "pas": 130,
           "tratada": "0",
           "fumante": "0",
-          "diabetes": "0"
+          "diabetes": "0",
+          "contexto": "1"
         },
         {
           "raw": {
-            "risk": 10,
-            "cat": "intermediário"
-          }
+            "risk": 12.148639774148753,
+            "linear": 24.07972983235777
+          },
+          "main": "12,15",
+          "tol": 1e-9
         }
       ],
       [
-        "Mulher, 62 anos, CT 250, HDL 40, PAS 150 tratada, fumante, diabética: > 30% (alto)",
+        "Mulher55:coeficientes contínuos2008",
         {
           "sexo": "F",
-          "idade": 62,
-          "ct": 250,
-          "hdl": 40,
-          "pas": 150,
-          "tratada": "1",
-          "fumante": "1",
-          "diabetes": "1"
-        },
-        {
-          "raw": {
-            "risk": ">30",
-            "cat": "alto"
-          },
-          "level": "high"
-        }
-      ],
-      [
-        "Mulher, 35 anos, CT 150, HDL 65, PAS 110: < 1% (baixo)",
-        {
-          "sexo": "F",
-          "idade": 35,
-          "ct": 150,
-          "hdl": 65,
-          "pas": 110,
+          "idade": 55,
+          "ct": 200,
+          "hdl": 45,
+          "pas": 130,
           "tratada": "0",
           "fumante": "0",
-          "diabetes": "0"
+          "diabetes": "0",
+          "contexto": "1"
         },
         {
           "raw": {
-            "risk": "<1",
-            "cat": "baixo"
+            "risk": 6.616180425503274,
+            "linear": 26.484139608241048
           },
-          "level": "low"
+          "main": "6,62",
+          "tol": 1e-9
         }
       ]
     ],
-    "kind": "Calculadora",
-    "config": null,
-    "clinicalReview": "pending",
     "arithmeticTest": {
       "status": "passed",
-      "testedAt": "2026-09-25",
-      "total": 4,
-      "passed": 4,
-      "failures": []
+      "testedAt": "2026-10-03",
+      "total": 2,
+      "passed": 2,
+      "failures": [],
+      "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+      "scope": "Synthetic source-rule arithmetic checks. Independent clinical validation not performed."
     },
     "independentArithmeticTest": {
-      "status": "not-tested",
-      "testedAt": null,
-      "total": 0,
-      "passed": 0,
-      "cases": []
-    }
-  },
-  "review": {
-    "id": "escore-de-risco-global",
-    "status": "restricted",
-    "reason": "O ZIP calcula ERG/Framingham e vincula metas lipídicas da SBC 2017. A diretriz SBC 2025 recomenda PREVENT em adultos elegíveis de 30–79 anos sem doença cardiovascular estabelecida. Manter o registro histórico; suspender o cálculo neste lançamento até versionamento e revisão.",
-    "sourceUrl": "https://abccardiol.org/wp-content/uploads/articles_xml/0066-782X-abc-122-09-e20250640/0066-782X-abc-122-09-e20250640.x74770.pdf",
-    "sourceTitle": "Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose — SBC 2025",
-    "sourceDate": "2025",
-    "publisherRegion": "Brasil",
-    "checkedAt": "2026-09-25",
+      "status": "passed",
+      "testedAt": "2026-10-03",
+      "total": 34,
+      "passed": 34,
+      "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+      "scope": "Independent expected values and source-rule boundary checks; not clinical approval.",
+      "sourceRowCount": 34,
+      "uniqueApiInputCount": 29,
+      "inputIdentity": {
+        "definition": "Distinct JSON input objects within each method after recursively sorting object keys; array order, numeric values and JSON value types preserved. Uses stored input/inputs before implicit default completion, numeric coercion or clinical feature interpretation. Identity across different methods is not collapsed. Repeated scenarios are retained and coverage status is unchanged.",
+        "audit": {
+          "file": "reports/review-20261003/independent-source-corpus-input-identity-audit-final25.json",
+          "sha256": "35d65e84c5608a5f572fce6837f0a8c101b2266f5d6eec32a3d60d2bb6b022ca"
+        },
+        "sourceRows": 34,
+        "uniqueApiInputs": 29,
+        "duplicateRows": 5,
+        "duplicates": [
+          {
+            "first": 2,
+            "repeat": 9,
+            "input": {
+              "sexo": "M",
+              "idade": 75,
+              "ct": 200,
+              "hdl": 45,
+              "pas": 130,
+              "tratada": "0",
+              "fumante": "0",
+              "diabetes": "0",
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 7,
+            "repeat": 10,
+            "input": {
+              "sexo": "M",
+              "idade": null,
+              "ct": 200,
+              "hdl": 45,
+              "pas": 130,
+              "tratada": "0",
+              "fumante": "0",
+              "diabetes": "0",
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 12,
+            "repeat": 15,
+            "input": {
+              "sexo": "M",
+              "idade": 55,
+              "ct": null,
+              "hdl": 45,
+              "pas": 130,
+              "tratada": "0",
+              "fumante": "0",
+              "diabetes": "0",
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 17,
+            "repeat": 20,
+            "input": {
+              "sexo": "M",
+              "idade": 55,
+              "ct": 200,
+              "hdl": null,
+              "pas": 130,
+              "tratada": "0",
+              "fumante": "0",
+              "diabetes": "0",
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 22,
+            "repeat": 25,
+            "input": {
+              "sexo": "M",
+              "idade": 55,
+              "ct": 200,
+              "hdl": 45,
+              "pas": null,
+              "tratada": "0",
+              "fumante": "0",
+              "diabetes": "0",
+              "contexto": "1"
+            }
+          }
+        ],
+        "coverageStatusUnchanged": true
+      },
+      "publicCandidateBankOmitted": true
+    },
+    "limits": "População original de 30–74 anos sem doença cardiovascular. Não representa PREVENT nem diretriz SBC 2025. Não aplica metas lipídicas ou tratamentos. A calibração local exige conferência.",
+    "methodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+    "currentMethodSource": {
+      "title": "Framingham Heart Study · General CVD 10-year risk · coeficientes originais",
+      "url": "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/",
+      "version": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+      "checkedAt": "2026-10-03",
+      "access": "original-research-project"
+    },
+    "primaryVerification": {
+      "url": "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/",
+      "checked": "Site do projeto Framingham: coeficientes masculino e feminino do modelo contínuo com lipídios, sobrevivência basal e centralização. População de 30–74 anos sem doença cardiovascular; versão histórica de 2008 explicitamente identificada.",
+      "access": "original-research-project"
+    },
     "clinicalValidation": "not-performed",
-    "suppressLegacyFormula": true,
-    "formulaOverride": "ERG/Framingham por pontos, versão histórica importada. A aplicação, os cortes e as metas requerem revisão conforme a diretriz selecionada.",
-    "replacementReadings": [
-      {
-        "url": "https://abccardiol.org/wp-content/uploads/articles_xml/0066-782X-abc-122-09-e20250640/0066-782X-abc-122-09-e20250640.x74770.pdf",
-        "title": "Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose — SBC 2025",
-        "date": "2025",
-        "region": "Brasil"
-      }
-    ]
+    "languageReview": "not-performed",
+    "reviewStatus": "needs-review",
+    "implementationStatus": "available",
+    "versionEvidence": {
+      "status": "explicit-implemented-variant-and-existing-source-proofs-recorded",
+      "checkedAt": "2026-10-04T17:52:09.841Z",
+      "declaredMethodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+      "implementedVariant": "Risco em 10 anos = 100 × [1 − S₀^exp(ΣβX − média)]. Coeficientes por sexo do modelo contínuo com idade, colesterol total, HDL, PAS tratada/não tratada, tabagismo e diabetes.",
+      "inputContract": {
+        "fields": [
+          {
+            "key": "sexo",
+            "label": "Sexo",
+            "type": "radio",
+            "optional": false,
+            "options": {
+              "F": "Feminino",
+              "M": "Masculino"
+            }
+          },
+          {
+            "key": "idade",
+            "label": "Idade",
+            "type": "num",
+            "min": 30,
+            "max": 74,
+            "unit": "anos",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "ct",
+            "label": "Colesterol total",
+            "type": "num",
+            "min": 70,
+            "max": 500,
+            "unit": "mg/dL",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "hdl",
+            "label": "HDL-colesterol",
+            "type": "num",
+            "min": 10,
+            "max": 150,
+            "unit": "mg/dL",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "pas",
+            "label": "Pressão sistólica",
+            "type": "num",
+            "min": 70,
+            "max": 260,
+            "unit": "mmHg",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "tratada",
+            "label": "Usa remédio para pressão?",
+            "type": "radio",
+            "optional": false,
+            "options": {
+              "0": "Não",
+              "1": "Sim"
+            }
+          },
+          {
+            "key": "fumante",
+            "label": "Fumante?",
+            "type": "radio",
+            "optional": false,
+            "options": {
+              "0": "Não",
+              "1": "Sim"
+            }
+          },
+          {
+            "key": "diabetes",
+            "label": "Diabetes?",
+            "type": "radio",
+            "optional": false,
+            "options": {
+              "0": "Não",
+              "1": "Sim"
+            }
+          },
+          {
+            "key": "contexto",
+            "label": "Sem doença cardiovascular estabelecida; uso da versão histórica Framingham 2008 confirmado?",
+            "type": "sel",
+            "optional": false,
+            "options": {
+              "0": "Não",
+              "1": "Sim"
+            }
+          }
+        ],
+        "hash": "7f341e4aca76458214c7f50f7b7d7655d47e6adb13643e455068d9d52f858a0f",
+        "hashInputDefinition": "SHA256 of UTF8 JSON.stringify({id:tool.id,fields:tool.fields,formula:tool.formula,config:tool.config||null}), preserving declared order/value types; not a hash of versionEvidence.inputContract.fields display projection."
+      },
+      "sourceEditions": [
+        {
+          "citation": "Framingham Heart Study · General CVD 10-year risk · coeficientes originais",
+          "url": "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        },
+        {
+          "citation": "D'Agostino RB et al. General cardiovascular risk profile for use in primary care: the Framingham Heart Study. Circulation, 2008.",
+          "url": "https://doi.org/10.1161/CIRCULATIONAHA.107.699579",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        },
+        {
+          "citation": "Faludi AA et al. Atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose – 2017. Arq Bras Cardiol.",
+          "url": "https://doi.org/10.5935/abc.20170121",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        }
+      ],
+      "existingSourceEvidence": {
+        "currentMethodSource": {
+          "title": "Framingham Heart Study · General CVD 10-year risk · coeficientes originais",
+          "url": "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/",
+          "version": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+          "checkedAt": "2026-10-03",
+          "access": "original-research-project"
+        },
+        "primaryVerification": {
+          "url": "https://www.framinghamheartstudy.org/fhs-for-researchers/fhs-risk-functions/cardiovascular-disease-10-year-risk/",
+          "checked": "Site do projeto Framingham: coeficientes masculino e feminino do modelo contínuo com lipídios, sobrevivência basal e centralização. População de 30–74 anos sem doença cardiovascular; versão histórica de 2008 explicitamente identificada.",
+          "access": "original-research-project"
+        }
+      },
+      "editionRecordingScope": "The methodVersion and all previously recorded source access/edition proofs are transcribed unchanged. This technical normalization makes no new bibliographic/full-text/source-formula confirmation; named existing read scopes remain in existingSourceEvidence. A missing standardized container did not mean the method edition was missing.",
+      "publicationEditionConfirmationReevaluated": false,
+      "fullFormulaConformanceReviewed": false,
+      "formulaConformance": "Not established by technical hashes or metadata normalization; retain existing bounded source arithmetic and clinical review separately.",
+      "independentArithmetic": {
+        "status": "passed",
+        "testedAt": "2026-10-03",
+        "total": 34,
+        "passed": 34,
+        "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+        "scope": "Independent expected values and source-rule boundary checks; not clinical approval.",
+        "sourceRowCount": 34,
+        "uniqueApiInputCount": 29,
+        "inputIdentity": {
+          "definition": "Distinct JSON input objects within each method after recursively sorting object keys; array order, numeric values and JSON value types preserved. Uses stored input/inputs before implicit default completion, numeric coercion or clinical feature interpretation. Identity across different methods is not collapsed. Repeated scenarios are retained and coverage status is unchanged.",
+          "audit": {
+            "file": "reports/review-20261003/independent-source-corpus-input-identity-audit-final25.json",
+            "sha256": "35d65e84c5608a5f572fce6837f0a8c101b2266f5d6eec32a3d60d2bb6b022ca"
+          },
+          "sourceRows": 34,
+          "uniqueApiInputs": 29,
+          "duplicateRows": 5,
+          "duplicates": [
+            {
+              "first": 2,
+              "repeat": 9,
+              "input": {
+                "sexo": "M",
+                "idade": 75,
+                "ct": 200,
+                "hdl": 45,
+                "pas": 130,
+                "tratada": "0",
+                "fumante": "0",
+                "diabetes": "0",
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 7,
+              "repeat": 10,
+              "input": {
+                "sexo": "M",
+                "idade": null,
+                "ct": 200,
+                "hdl": 45,
+                "pas": 130,
+                "tratada": "0",
+                "fumante": "0",
+                "diabetes": "0",
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 12,
+              "repeat": 15,
+              "input": {
+                "sexo": "M",
+                "idade": 55,
+                "ct": null,
+                "hdl": 45,
+                "pas": 130,
+                "tratada": "0",
+                "fumante": "0",
+                "diabetes": "0",
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 17,
+              "repeat": 20,
+              "input": {
+                "sexo": "M",
+                "idade": 55,
+                "ct": 200,
+                "hdl": null,
+                "pas": 130,
+                "tratada": "0",
+                "fumante": "0",
+                "diabetes": "0",
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 22,
+              "repeat": 25,
+              "input": {
+                "sexo": "M",
+                "idade": 55,
+                "ct": 200,
+                "hdl": 45,
+                "pas": null,
+                "tratada": "0",
+                "fumante": "0",
+                "diabetes": "0",
+                "contexto": "1"
+              }
+            }
+          ],
+          "coverageStatusUnchanged": true
+        },
+        "publicCandidateBankOmitted": true
+      },
+      "clinicalApproval": "not-performed",
+      "translationApproval": "not-performed",
+      "releaseApproval": "not-performed",
+      "professionalLanguageApproval": "not-performed",
+      "sourceRightsApproval": "not-performed",
+      "implementationHash": "aa67d55183d3aec94bc6c1185daa1221a1f5cab68d0249c048e6bdfdcebaee70",
+      "implementationHashScope": "Exact current calculator.js bytes, individually verified in three app mirrors. This is not a full dependency-closure hash.",
+      "technicalBindingHistory": [
+        {
+          "recordedAt": "2026-10-04T17:52:09.841Z",
+          "scope": "First standardized container; explicit existing methodVersion and source proof objects preserved.",
+          "priorStandardizedContainerPresent": false,
+          "priorImplementationVersion": null,
+          "explicitMethodVersion": "Framingham General CVD 2008; modelo contínuo com lipídios, histórico",
+          "sourceEvidenceSha256": "ae6161f67490833473674ec8f0fd2818375c487d84a4535e8ce4bf1dd7e97037",
+          "metadataAudit": {
+            "file": "reports/review-20261003/native-technical-bindings-audit-publication-final26.json",
+            "sha256": "e615fa3a42555f8fbeb4de8763893c3e981a73eae4c8c1994b33727e19ebd8c8"
+          }
+        }
+      ]
+    },
+    "implementationVersion": "escore-de-risco-global@native-2026-10-04+aa67d55183d3"
   },
-  "clinicalValidation": "not-performed"
+  "sourceToolSha256": "403e7786725ff253ad9160d657ebeef92d5172d65b14a0e2d538c6f5b764026f",
+  "omittedFullReferenceBanks": [
+    {
+      "at": "independentArithmeticTest.cases",
+      "rows": 34,
+      "sha256": "2b7f2b349225d95f0e4c9a47830ea975301773d38eb82444896192af7b18d567",
+      "reason": "Full independent reference bank omitted from standalone public candidate; original evidence references retained"
+    },
+    {
+      "at": "versionEvidence.independentArithmetic.cases",
+      "rows": 34,
+      "sha256": "2b7f2b349225d95f0e4c9a47830ea975301773d38eb82444896192af7b18d567",
+      "reason": "Embedded complete independent bank omitted; edition, scope and evidence references retained"
+    }
+  ],
+  "currentSource": {
+    "file": "apps/website/private/tool-code/escore-de-risco-global/calculator.js",
+    "bytes": 505,
+    "sha256": "aa67d55183d3aec94bc6c1185daa1221a1f5cab68d0249c048e6bdfdcebaee70"
+  },
+  "clinicalValidation": "not-performed",
+  "professionalLanguageReview": "not-performed",
+  "sourceRightsApproval": "not-performed"
 }

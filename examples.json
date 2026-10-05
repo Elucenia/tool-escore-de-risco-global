@@ -1,126 +1,106 @@
 [
   {
-    "label": "Homem, 55 anos, CT 213, HDL 50, PAS 120 sem tratamento: 11 pontos = 11,2% (intermediário)",
-    "input": {
-      "sexo": "M",
-      "idade": 55,
-      "ct": 213,
-      "hdl": 50,
-      "pas": 120,
-      "tratada": "0",
-      "fumante": "0",
-      "diabetes": "0"
-    },
-    "expected": {
-      "raw": {
-        "pts": 11,
-        "risk": 11.2,
-        "cat": "intermediário"
-      },
-      "level": "mid"
-    },
+    "id": "escore-de-risco-global",
+    "kind": "native-source-reference",
+    "index": 0,
+    "name": "Vetor sintético principal de referência",
     "originalInput": {
       "sexo": "M",
       "idade": 55,
-      "ct": 213,
-      "hdl": 50,
-      "pas": 120,
-      "tratada": "0",
-      "fumante": "0",
-      "diabetes": "0"
-    },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Mulher, 60 anos, CT 220, HDL 45, PAS 135: 10,0% é intermediário (alto só acima de 10%)",
-    "input": {
-      "sexo": "F",
-      "idade": 60,
-      "ct": 220,
+      "ct": 200,
       "hdl": 45,
-      "pas": 135,
+      "pas": 130,
       "tratada": "0",
       "fumante": "0",
-      "diabetes": "0"
+      "diabetes": "0",
+      "contexto": "1"
     },
+    "input": {
+      "sexo": "M",
+      "idade": 55,
+      "ct": 200,
+      "hdl": 45,
+      "pas": 130,
+      "tratada": "0",
+      "fumante": "0",
+      "diabetes": "0",
+      "contexto": "1"
+    },
+    "amendments": [],
     "expected": {
       "raw": {
-        "risk": 10,
-        "cat": "intermediário"
+        "risk": 12.148639774148753,
+        "linear": 24.07972983235777
+      },
+      "main": "12,15",
+      "tol": 1e-9
+    },
+    "recordedResult": {
+      "main": [
+        "12,15",
+        "%"
+      ],
+      "label": "Framingham 2008 · 10 anos",
+      "raw": {
+        "risk": 12.148639774148762,
+        "linear": 24.079729832357774
       }
     },
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
+  },
+  {
+    "id": "escore-de-risco-global",
+    "kind": "native-source-reference",
+    "index": 1,
+    "name": "Mulher55:coeficientes contínuos2008",
     "originalInput": {
       "sexo": "F",
-      "idade": 60,
-      "ct": 220,
+      "idade": 55,
+      "ct": 200,
       "hdl": 45,
-      "pas": 135,
+      "pas": 130,
       "tratada": "0",
       "fumante": "0",
-      "diabetes": "0"
+      "diabetes": "0",
+      "contexto": "1"
     },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Mulher, 62 anos, CT 250, HDL 40, PAS 150 tratada, fumante, diabética: > 30% (alto)",
     "input": {
       "sexo": "F",
-      "idade": 62,
-      "ct": 250,
-      "hdl": 40,
-      "pas": 150,
-      "tratada": "1",
-      "fumante": "1",
-      "diabetes": "1"
-    },
-    "expected": {
-      "raw": {
-        "risk": ">30",
-        "cat": "alto"
-      },
-      "level": "high"
-    },
-    "originalInput": {
-      "sexo": "F",
-      "idade": 62,
-      "ct": 250,
-      "hdl": 40,
-      "pas": 150,
-      "tratada": "1",
-      "fumante": "1",
-      "diabetes": "1"
-    },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Mulher, 35 anos, CT 150, HDL 65, PAS 110: < 1% (baixo)",
-    "input": {
-      "sexo": "F",
-      "idade": 35,
-      "ct": 150,
-      "hdl": 65,
-      "pas": 110,
+      "idade": 55,
+      "ct": 200,
+      "hdl": 45,
+      "pas": 130,
       "tratada": "0",
       "fumante": "0",
-      "diabetes": "0"
+      "diabetes": "0",
+      "contexto": "1"
     },
+    "amendments": [],
     "expected": {
       "raw": {
-        "risk": "<1",
-        "cat": "baixo"
+        "risk": 6.616180425503274,
+        "linear": 26.484139608241048
       },
-      "level": "low"
+      "main": "6,62",
+      "tol": 1e-9
     },
-    "originalInput": {
-      "sexo": "F",
-      "idade": 35,
-      "ct": 150,
-      "hdl": 65,
-      "pas": 110,
-      "tratada": "0",
-      "fumante": "0",
-      "diabetes": "0"
+    "recordedResult": {
+      "main": [
+        "6,62",
+        "%"
+      ],
+      "label": "Framingham 2008 · 10 anos",
+      "raw": {
+        "risk": 6.616180425503249,
+        "linear": 26.484139608241044
+      }
     },
-    "expandedZeroOptions": []
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
   }
 ]
